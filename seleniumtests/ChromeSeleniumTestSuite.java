@@ -1,48 +1,23 @@
 package com.sevatec.gsalegacyquery.seleniumtests;
 
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.remote.http.HttpResponse;
 import org.openqa.selenium.support.ui.Select;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.SpringBootConfiguration;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
-import com.sevatec.gsalegacyquery.GSALegacyQuery;
-import com.sevatec.gsalegacyquery.controllers.inquiry.InquiryController;
-import com.sevatec.gsalegacyquery.domains.Inquiry;
-import com.sevatec.gsalegacyquery.domains.Stakeholder;
-import com.sevatec.gsalegacyquery.repositories.InquiryRepository;
-import com.sevatec.gsalegacyquery.serviceimpls.InquiryServiceImpl;
-import com.sevatec.gsalegacyquery.services.MasterService;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.util.*;
 
 import org.junit.jupiter.api.Test;
 
-
-@Service
 public class ChromeSeleniumTestSuite {
 	
 	private static WebDriver driver;
 	private Select dropDown;
 	
-	
-	@Autowired
-	InquiryRepository inquiryRepository;
-	
 	@Test
 	public void launchBrowser() {
-		//inquiryRepository.deleteAll();
 		System.setProperty("webdriver.chrome.driver", "C:\\Program Files (x86)\\Selenium\\chromedriver_win32\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.get("http://localhost:4200");
@@ -60,8 +35,8 @@ public class ChromeSeleniumTestSuite {
 			e.printStackTrace();
 		}
 		dropDown = new Select(driver.findElement(By.id("application")));
-		//System.out.println(dropDown.getAllSelectedOptions());
-		//dropDown.selectByVisibleText("Test");
+		System.out.println(dropDown.getAllSelectedOptions());
+		dropDown.selectByVisibleText("Test");
 		
 	}
 	
